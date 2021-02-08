@@ -12,6 +12,13 @@
 		A235422325D16823004152D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235422225D16823004152D6 /* ViewController.swift */; };
 		A235422825D16823004152D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A235422725D16823004152D6 /* Assets.xcassets */; };
 		A235422B25D16823004152D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A235422925D16823004152D6 /* LaunchScreen.storyboard */; };
+		A235423B25D16BFE004152D6 /* beautifulTasks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A235423925D16BFE004152D6 /* beautifulTasks.xcdatamodeld */; };
+		A235424025D17900004152D6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235423F25D17900004152D6 /* CoreDataService.swift */; };
+		A235425125D17C08004152D6 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235425025D17C08004152D6 /* Task+CoreDataProperties.swift */; };
+		A235425725D17CBD004152D6 /* TaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235425625D17CBD004152D6 /* TaskDTO.swift */; };
+		A235425A25D1DF9A004152D6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235425925D1DF9A004152D6 /* NetworkService.swift */; };
+		A235425E25D1E088004152D6 /* BoredAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235425D25D1E088004152D6 /* BoredAPIError.swift */; };
+		A235426225D1E0D1004152D6 /* BoredTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235426125D1E0D1004152D6 /* BoredTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		A235422725D16823004152D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A235422A25D16823004152D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A235422C25D16823004152D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A235423A25D16BFE004152D6 /* beautifulTasks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = beautifulTasks.xcdatamodel; sourceTree = "<group>"; };
+		A235423F25D17900004152D6 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		A235425025D17C08004152D6 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		A235425625D17CBD004152D6 /* TaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDTO.swift; sourceTree = "<group>"; };
+		A235425925D1DF9A004152D6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		A235425D25D1E088004152D6 /* BoredAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredAPIError.swift; sourceTree = "<group>"; };
+		A235426125D1E0D1004152D6 /* BoredTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +68,53 @@
 		A235421D25D16823004152D6 /* beautifulTasks */ = {
 			isa = PBXGroup;
 			children = (
+				A235426425D1E221004152D6 /* View */,
+				A235425C25D1E072004152D6 /* Enum */,
+				A235424F25D17BF5004152D6 /* Model */,
+				A235423E25D178F1004152D6 /* Services */,
 				A235421E25D16823004152D6 /* AppDelegate.swift */,
 				A235422025D16823004152D6 /* SceneDelegate.swift */,
 				A235422225D16823004152D6 /* ViewController.swift */,
 				A235422725D16823004152D6 /* Assets.xcassets */,
 				A235422925D16823004152D6 /* LaunchScreen.storyboard */,
 				A235422C25D16823004152D6 /* Info.plist */,
+				A235423925D16BFE004152D6 /* beautifulTasks.xcdatamodeld */,
 			);
 			path = beautifulTasks;
+			sourceTree = "<group>";
+		};
+		A235423E25D178F1004152D6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A235423F25D17900004152D6 /* CoreDataService.swift */,
+				A235425925D1DF9A004152D6 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A235424F25D17BF5004152D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A235425025D17C08004152D6 /* Task+CoreDataProperties.swift */,
+				A235425625D17CBD004152D6 /* TaskDTO.swift */,
+				A235426125D1E0D1004152D6 /* BoredTask.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A235425C25D1E072004152D6 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				A235425D25D1E088004152D6 /* BoredAPIError.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		A235426425D1E221004152D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +209,14 @@
 			files = (
 				A235422325D16823004152D6 /* ViewController.swift in Sources */,
 				A235421F25D16823004152D6 /* AppDelegate.swift in Sources */,
+				A235425A25D1DF9A004152D6 /* NetworkService.swift in Sources */,
+				A235426225D1E0D1004152D6 /* BoredTask.swift in Sources */,
+				A235424025D17900004152D6 /* CoreDataService.swift in Sources */,
+				A235423B25D16BFE004152D6 /* beautifulTasks.xcdatamodeld in Sources */,
+				A235425125D17C08004152D6 /* Task+CoreDataProperties.swift in Sources */,
 				A235422125D16823004152D6 /* SceneDelegate.swift in Sources */,
+				A235425E25D1E088004152D6 /* BoredAPIError.swift in Sources */,
+				A235425725D17CBD004152D6 /* TaskDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +410,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A235423925D16BFE004152D6 /* beautifulTasks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A235423A25D16BFE004152D6 /* beautifulTasks.xcdatamodel */,
+			);
+			currentVersion = A235423A25D16BFE004152D6 /* beautifulTasks.xcdatamodel */;
+			path = beautifulTasks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A235421325D16823004152D6 /* Project object */;
 }
