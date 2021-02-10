@@ -19,6 +19,11 @@
 		A235425A25D1DF9A004152D6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235425925D1DF9A004152D6 /* NetworkService.swift */; };
 		A235425E25D1E088004152D6 /* BoredAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235425D25D1E088004152D6 /* BoredAPIError.swift */; };
 		A235426225D1E0D1004152D6 /* BoredTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235426125D1E0D1004152D6 /* BoredTask.swift */; };
+		A2AAB28325D405C9004E39C1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAB28225D405C9004E39C1 /* Router.swift */; };
+		A2AAB28725D41984004E39C1 /* StatusTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAB28625D41984004E39C1 /* StatusTasks.swift */; };
+		A2AAB28C25D41B75004E39C1 /* StatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAB28B25D41B75004E39C1 /* StatusCard.swift */; };
+		A2AAB29025D41F00004E39C1 /* TasksStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAB28F25D41F00004E39C1 /* TasksStatus.swift */; };
+		A2AAB29325D46360004E39C1 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAB29225D46360004E39C1 /* TaskTableViewCell.swift */; };
 		A2BA77C325D2B1F9006C239E /* DaysTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA77C225D2B1F9006C239E /* DaysTasksViewController.swift */; };
 		A2BA77C725D2B2C1006C239E /* ClockIconConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA77C625D2B2C1006C239E /* ClockIconConfiguration.swift */; };
 		A2BA77D425D2DCAE006C239E /* BackgroundClocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA77D325D2DCAE006C239E /* BackgroundClocks.swift */; };
@@ -39,6 +44,11 @@
 		A235425925D1DF9A004152D6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A235425D25D1E088004152D6 /* BoredAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredAPIError.swift; sourceTree = "<group>"; };
 		A235426125D1E0D1004152D6 /* BoredTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredTask.swift; sourceTree = "<group>"; };
+		A2AAB28225D405C9004E39C1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		A2AAB28625D41984004E39C1 /* StatusTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTasks.swift; sourceTree = "<group>"; };
+		A2AAB28B25D41B75004E39C1 /* StatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCard.swift; sourceTree = "<group>"; };
+		A2AAB28F25D41F00004E39C1 /* TasksStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksStatus.swift; sourceTree = "<group>"; };
+		A2AAB29225D46360004E39C1 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		A2BA77C225D2B1F9006C239E /* DaysTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysTasksViewController.swift; sourceTree = "<group>"; };
 		A2BA77C625D2B2C1006C239E /* ClockIconConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockIconConfiguration.swift; sourceTree = "<group>"; };
 		A2BA77D325D2DCAE006C239E /* BackgroundClocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClocks.swift; sourceTree = "<group>"; };
@@ -94,6 +104,7 @@
 			children = (
 				A235423F25D17900004152D6 /* CoreDataService.swift */,
 				A235425925D1DF9A004152D6 /* NetworkService.swift */,
+				A2AAB28225D405C9004E39C1 /* Router.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -113,6 +124,7 @@
 			children = (
 				A235425D25D1E088004152D6 /* BoredAPIError.swift */,
 				A2BA77C625D2B2C1006C239E /* ClockIconConfiguration.swift */,
+				A2AAB28F25D41F00004E39C1 /* TasksStatus.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -146,6 +158,7 @@
 		A2BA77BF25D2B168006C239E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				A2AAB29225D46360004E39C1 /* TaskTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -154,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				A2BA77D325D2DCAE006C239E /* BackgroundClocks.swift */,
+				A2AAB28625D41984004E39C1 /* StatusTasks.swift */,
+				A2AAB28B25D41B75004E39C1 /* StatusCard.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -250,14 +265,19 @@
 			files = (
 				A235422325D16823004152D6 /* ViewController.swift in Sources */,
 				A235421F25D16823004152D6 /* AppDelegate.swift in Sources */,
+				A2AAB29325D46360004E39C1 /* TaskTableViewCell.swift in Sources */,
+				A2AAB29025D41F00004E39C1 /* TasksStatus.swift in Sources */,
 				A235425A25D1DF9A004152D6 /* NetworkService.swift in Sources */,
 				A2BA77C725D2B2C1006C239E /* ClockIconConfiguration.swift in Sources */,
 				A235426225D1E0D1004152D6 /* BoredTask.swift in Sources */,
 				A235424025D17900004152D6 /* CoreDataService.swift in Sources */,
 				A235423B25D16BFE004152D6 /* beautifulTasks.xcdatamodeld in Sources */,
+				A2AAB28725D41984004E39C1 /* StatusTasks.swift in Sources */,
 				A2BA77C325D2B1F9006C239E /* DaysTasksViewController.swift in Sources */,
+				A2AAB28C25D41B75004E39C1 /* StatusCard.swift in Sources */,
 				A2BA77D425D2DCAE006C239E /* BackgroundClocks.swift in Sources */,
 				A235425125D17C08004152D6 /* Task+CoreDataProperties.swift in Sources */,
+				A2AAB28325D405C9004E39C1 /* Router.swift in Sources */,
 				A235422125D16823004152D6 /* SceneDelegate.swift in Sources */,
 				A235425E25D1E088004152D6 /* BoredAPIError.swift in Sources */,
 				A235425725D17CBD004152D6 /* TaskDTO.swift in Sources */,

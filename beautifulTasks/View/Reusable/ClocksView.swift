@@ -36,16 +36,16 @@ class ClocksView: UIView {
         super.init(frame: frame)
         self.configureView()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         self.configureCollisionBehavior()
         self.configureVortexBehavior()
         self.configureNoiseBehavior()
         self.attachClocks()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
