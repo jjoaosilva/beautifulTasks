@@ -19,6 +19,9 @@
 		A235425A25D1DF9A004152D6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235425925D1DF9A004152D6 /* NetworkService.swift */; };
 		A235425E25D1E088004152D6 /* BoredAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235425D25D1E088004152D6 /* BoredAPIError.swift */; };
 		A235426225D1E0D1004152D6 /* BoredTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235426125D1E0D1004152D6 /* BoredTask.swift */; };
+		A2BA77C325D2B1F9006C239E /* DaysTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA77C225D2B1F9006C239E /* DaysTasksViewController.swift */; };
+		A2BA77C725D2B2C1006C239E /* ClockIconConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA77C625D2B2C1006C239E /* ClockIconConfiguration.swift */; };
+		A2BA77D425D2DCAE006C239E /* BackgroundClocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA77D325D2DCAE006C239E /* BackgroundClocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		A235425925D1DF9A004152D6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A235425D25D1E088004152D6 /* BoredAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredAPIError.swift; sourceTree = "<group>"; };
 		A235426125D1E0D1004152D6 /* BoredTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredTask.swift; sourceTree = "<group>"; };
+		A2BA77C225D2B1F9006C239E /* DaysTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysTasksViewController.swift; sourceTree = "<group>"; };
+		A2BA77C625D2B2C1006C239E /* ClockIconConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockIconConfiguration.swift; sourceTree = "<group>"; };
+		A2BA77D325D2DCAE006C239E /* BackgroundClocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,13 +74,13 @@
 		A235421D25D16823004152D6 /* beautifulTasks */ = {
 			isa = PBXGroup;
 			children = (
+				A2BA77BD25D2B150006C239E /* ViewModel */,
 				A235426425D1E221004152D6 /* View */,
 				A235425C25D1E072004152D6 /* Enum */,
 				A235424F25D17BF5004152D6 /* Model */,
 				A235423E25D178F1004152D6 /* Services */,
 				A235421E25D16823004152D6 /* AppDelegate.swift */,
 				A235422025D16823004152D6 /* SceneDelegate.swift */,
-				A235422225D16823004152D6 /* ViewController.swift */,
 				A235422725D16823004152D6 /* Assets.xcassets */,
 				A235422925D16823004152D6 /* LaunchScreen.storyboard */,
 				A235422C25D16823004152D6 /* Info.plist */,
@@ -106,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				A235425D25D1E088004152D6 /* BoredAPIError.swift */,
+				A2BA77C625D2B2C1006C239E /* ClockIconConfiguration.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -113,8 +120,42 @@
 		A235426425D1E221004152D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A2BA77C025D2B178006C239E /* Reusable */,
+				A2BA77BF25D2B168006C239E /* Cell */,
+				A2BA77BE25D2B15E006C239E /* Controller */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A2BA77BD25D2B150006C239E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A2BA77BE25D2B15E006C239E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A235422225D16823004152D6 /* ViewController.swift */,
+				A2BA77C225D2B1F9006C239E /* DaysTasksViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A2BA77BF25D2B168006C239E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A2BA77C025D2B178006C239E /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				A2BA77D325D2DCAE006C239E /* BackgroundClocks.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +251,12 @@
 				A235422325D16823004152D6 /* ViewController.swift in Sources */,
 				A235421F25D16823004152D6 /* AppDelegate.swift in Sources */,
 				A235425A25D1DF9A004152D6 /* NetworkService.swift in Sources */,
+				A2BA77C725D2B2C1006C239E /* ClockIconConfiguration.swift in Sources */,
 				A235426225D1E0D1004152D6 /* BoredTask.swift in Sources */,
 				A235424025D17900004152D6 /* CoreDataService.swift in Sources */,
 				A235423B25D16BFE004152D6 /* beautifulTasks.xcdatamodeld in Sources */,
+				A2BA77C325D2B1F9006C239E /* DaysTasksViewController.swift in Sources */,
+				A2BA77D425D2DCAE006C239E /* BackgroundClocks.swift in Sources */,
 				A235425125D17C08004152D6 /* Task+CoreDataProperties.swift in Sources */,
 				A235422125D16823004152D6 /* SceneDelegate.swift in Sources */,
 				A235425E25D1E088004152D6 /* BoredAPIError.swift in Sources */,
