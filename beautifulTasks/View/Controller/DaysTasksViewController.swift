@@ -37,7 +37,7 @@ class DaysTasksViewController: UIViewController {
         self.configureLayout()
     }
 
-    private func setupNavigationBar() { // addTaskColor
+    private func setupNavigationBar() {
         self.title = self.getDate()
 
         let image =  UIImage(systemName: "plus.circle")
@@ -85,7 +85,9 @@ class DaysTasksViewController: UIViewController {
     }
 
     @objc private func addTaskButtonWasTapped() {
-        // up modal
+        let createTaskController = CreateTaskViewController()
+        let createTasknavigationController = UINavigationController(rootViewController: createTaskController)
+        self.navigationController?.present(createTasknavigationController, animated: true, completion: nil)
     }
 
     private func getDate() -> String {
