@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A21774B425D5556F00E9665E /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21774B325D5556F00E9665E /* CreateTaskViewController.swift */; };
 		A21774B825D5656800E9665E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21774B725D5656800E9665E /* TextField.swift */; };
+		A21774BD25D56C6D00E9665E /* ShowTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21774BC25D56C6D00E9665E /* ShowTaskViewController.swift */; };
 		A235421F25D16823004152D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235421E25D16823004152D6 /* AppDelegate.swift */; };
 		A235422125D16823004152D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235422025D16823004152D6 /* SceneDelegate.swift */; };
 		A235422325D16823004152D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235422225D16823004152D6 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		A21774B325D5556F00E9665E /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		A21774B725D5656800E9665E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		A21774BC25D56C6D00E9665E /* ShowTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTaskViewController.swift; sourceTree = "<group>"; };
 		A235421B25D16823004152D6 /* beautifulTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beautifulTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A235421E25D16823004152D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A235422025D16823004152D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				A235422225D16823004152D6 /* ViewController.swift */,
 				A2BA77C225D2B1F9006C239E /* DaysTasksViewController.swift */,
 				A21774B325D5556F00E9665E /* CreateTaskViewController.swift */,
+				A21774BC25D56C6D00E9665E /* ShowTaskViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				A235422325D16823004152D6 /* ViewController.swift in Sources */,
 				A21774B425D5556F00E9665E /* CreateTaskViewController.swift in Sources */,
 				A235421F25D16823004152D6 /* AppDelegate.swift in Sources */,
+				A21774BD25D56C6D00E9665E /* ShowTaskViewController.swift in Sources */,
 				A21774B825D5656800E9665E /* TextField.swift in Sources */,
 				A2AAB29325D46360004E39C1 /* TaskTableViewCell.swift in Sources */,
 				A2AAB29025D41F00004E39C1 /* TasksStatus.swift in Sources */,

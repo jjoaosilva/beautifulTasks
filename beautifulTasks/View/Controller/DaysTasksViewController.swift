@@ -6,7 +6,7 @@
 //
 
 import UIKit
-// swiftlint:disable line_length
+// swiftlint:disable line_length force_cast
 
 class DaysTasksViewController: UIViewController {
 
@@ -55,7 +55,7 @@ class DaysTasksViewController: UIViewController {
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.allowsSelection = false
+        self.tableView.allowsSelection = true
         self.tableView.separatorStyle = .none
     }
 
@@ -125,5 +125,14 @@ extension DaysTasksViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.view.frame.height * 0.15
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = self.tableView.cellForRow(at: indexPath) as! TaskTableViewCell
+
+        let showTaskController = ShowTaskViewController()
+        showTaskController.configure(cell.check)
+
+        self.navigationController?.present(showTaskController, animated: true, completion: nil)
     }
 }
