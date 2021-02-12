@@ -29,29 +29,33 @@ class StatusTasks: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setup()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.setup()
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     private func setup() {
         self.backgroundColor = .clear
-
-        let stack = UIStackView(arrangedSubviews: [self.concludeCard, self.pendingCard])
-        stack.axis = .horizontal
-        stack.distribution = .fillEqually
-        stack.setCustomSpacing(16, after: self.concludeCard)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-
-        self.addSubview(stack)
+        self.addSubview(self.pendingCard)
+        self.addSubview(self.concludeCard)
 
         NSLayoutConstraint.activate([
-            stack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            stack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            stack.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.9),
-            stack.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9)
+            self.pendingCard.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.pendingCard.leftAnchor.constraint(equalTo: self.centerXAnchor, constant: 8),
+            self.pendingCard.heightAnchor.constraint(equalToConstant: 90),
+            self.pendingCard.widthAnchor.constraint(equalToConstant: 170)
+        ])
+
+        NSLayoutConstraint.activate([
+            self.concludeCard.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.concludeCard.rightAnchor.constraint(equalTo: self.centerXAnchor, constant: -8),
+            self.concludeCard.heightAnchor.constraint(equalToConstant: 90),
+            self.concludeCard.widthAnchor.constraint(equalToConstant: 170)
         ])
     }
 }

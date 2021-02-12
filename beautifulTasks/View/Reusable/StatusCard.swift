@@ -9,12 +9,6 @@ import UIKit
 
 class StatusCard: UIView {
 
-    let backgroundView: UIView = {
-        let backgroundView = UIView()
-        backgroundView.translatesAutoresizingMaskIntoConstraints = false
-        return backgroundView
-    }()
-
     let icon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -52,45 +46,38 @@ class StatusCard: UIView {
     }
 
     private func setup() {
-        self.addSubview(backgroundView)
         self.addSubview(icon)
         self.addSubview(numberLabel)
         self.addSubview(label)
     }
 
     private func configureLayout() {
-        self.backgroundView.layer.cornerRadius = 16
+        self.layer.cornerRadius = 16
 
         NSLayoutConstraint.activate([
-            self.backgroundView.heightAnchor.constraint(equalToConstant: 90),
-            self.backgroundView.widthAnchor.constraint(equalToConstant: 170),
-            self.backgroundView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        ])
-
-        NSLayoutConstraint.activate([
-            self.icon.centerYAnchor.constraint(equalTo: self.backgroundView.centerYAnchor),
-            self.icon.leftAnchor.constraint(equalTo: self.backgroundView.leftAnchor, constant: 8),
-            self.icon.widthAnchor.constraint(equalTo: self.backgroundView.widthAnchor, multiplier: 0.25),
+            self.icon.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.icon.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
+            self.icon.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.25),
             self.icon.heightAnchor.constraint(equalTo: self.icon.widthAnchor)
         ])
 
         NSLayoutConstraint.activate([
             self.numberLabel.leftAnchor.constraint(equalTo: self.icon.rightAnchor, constant: 16),
-            self.label.rightAnchor.constraint(lessThanOrEqualTo: self.backgroundView.rightAnchor),
-            self.numberLabel.bottomAnchor.constraint(equalTo: self.backgroundView.centerYAnchor)
+            self.label.rightAnchor.constraint(lessThanOrEqualTo: self.rightAnchor),
+            self.numberLabel.bottomAnchor.constraint(equalTo: self.centerYAnchor)
         ])
 
         NSLayoutConstraint.activate([
             self.label.leftAnchor.constraint(equalTo: self.icon.rightAnchor, constant: 16),
-            self.label.rightAnchor.constraint(lessThanOrEqualTo: self.backgroundView.rightAnchor),
-            self.label.topAnchor.constraint(equalTo: self.backgroundView.centerYAnchor)
+            self.label.rightAnchor.constraint(lessThanOrEqualTo: self.rightAnchor),
+            self.label.topAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
 
     func configureCard(icon status: TasksStatus) {
         self.icon.image = status.icon
         self.label.text = status.label
-        self.backgroundView.backgroundColor = status.backgroundColor
+        self.backgroundColor = status.backgroundColor
     }
 
     func setQuantity(with number: Int) {
