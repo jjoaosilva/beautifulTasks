@@ -12,8 +12,7 @@ class StatusTasks: UIView {
     let concludeCard: StatusCard = {
         let statusCard = StatusCard()
         statusCard.configureCard(icon: TasksStatus.conclude)
-        //Mock
-        statusCard.setQuantity(with: 10)
+        statusCard.setQuantity(with: 0)
         statusCard.translatesAutoresizingMaskIntoConstraints = false
         return statusCard
     }()
@@ -21,8 +20,7 @@ class StatusTasks: UIView {
     let pendingCard: StatusCard = {
         let statusCard = StatusCard()
         statusCard.configureCard(icon: TasksStatus.pending)
-        //Mock
-        statusCard.setQuantity(with: 10)
+        statusCard.setQuantity(with: 0)
         statusCard.translatesAutoresizingMaskIntoConstraints = false
         return statusCard
     }()
@@ -57,5 +55,10 @@ class StatusTasks: UIView {
             self.concludeCard.heightAnchor.constraint(equalToConstant: 90),
             self.concludeCard.widthAnchor.constraint(equalToConstant: 170)
         ])
+    }
+
+    func consigureQuantities(_ conclude: Int, _ pending: Int) {
+        self.concludeCard.setQuantity(with: conclude)
+        self.pendingCard.setQuantity(with: pending)
     }
 }

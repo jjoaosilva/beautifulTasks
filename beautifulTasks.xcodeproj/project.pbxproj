@@ -10,6 +10,10 @@
 		A21774B425D5556F00E9665E /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21774B325D5556F00E9665E /* CreateTaskViewController.swift */; };
 		A21774B825D5656800E9665E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21774B725D5656800E9665E /* TextField.swift */; };
 		A21774BD25D56C6D00E9665E /* ShowTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21774BC25D56C6D00E9665E /* ShowTaskViewController.swift */; };
+		A2334CB225D70CB400598E88 /* DaysTasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2334CB125D70CB400598E88 /* DaysTasksViewModel.swift */; };
+		A2334CB525D7265B00598E88 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2334CB425D7265B00598E88 /* EmptyStateView.swift */; };
+		A2334CB825D872F500598E88 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2334CB725D872F500598E88 /* CreateTaskViewModel.swift */; };
+		A2334CBC25D8862800598E88 /* UpdateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2334CBB25D8862800598E88 /* UpdateTask.swift */; };
 		A235421F25D16823004152D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235421E25D16823004152D6 /* AppDelegate.swift */; };
 		A235422125D16823004152D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235422025D16823004152D6 /* SceneDelegate.swift */; };
 		A235422325D16823004152D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235422225D16823004152D6 /* ViewController.swift */; };
@@ -36,6 +40,10 @@
 		A21774B325D5556F00E9665E /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		A21774B725D5656800E9665E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		A21774BC25D56C6D00E9665E /* ShowTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTaskViewController.swift; sourceTree = "<group>"; };
+		A2334CB125D70CB400598E88 /* DaysTasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysTasksViewModel.swift; sourceTree = "<group>"; };
+		A2334CB425D7265B00598E88 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		A2334CB725D872F500598E88 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
+		A2334CBB25D8862800598E88 /* UpdateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTask.swift; sourceTree = "<group>"; };
 		A235421B25D16823004152D6 /* beautifulTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beautifulTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A235421E25D16823004152D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A235422025D16823004152D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2334CBA25D8861700598E88 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A2334CBB25D8862800598E88 /* UpdateTask.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		A235421225D16823004152D6 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +106,7 @@
 		A235421D25D16823004152D6 /* beautifulTasks */ = {
 			isa = PBXGroup;
 			children = (
+				A2334CBA25D8861700598E88 /* Protocols */,
 				A2BA77BD25D2B150006C239E /* ViewModel */,
 				A235426425D1E221004152D6 /* View */,
 				A235425C25D1E072004152D6 /* Enum */,
@@ -148,6 +165,8 @@
 		A2BA77BD25D2B150006C239E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A2334CB125D70CB400598E88 /* DaysTasksViewModel.swift */,
+				A2334CB725D872F500598E88 /* CreateTaskViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -178,6 +197,7 @@
 				A2AAB28625D41984004E39C1 /* StatusTasks.swift */,
 				A2AAB28B25D41B75004E39C1 /* StatusCard.swift */,
 				A21774B725D5656800E9665E /* TextField.swift */,
+				A2334CB425D7265B00598E88 /* EmptyStateView.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -274,8 +294,10 @@
 			files = (
 				A235422325D16823004152D6 /* ViewController.swift in Sources */,
 				A21774B425D5556F00E9665E /* CreateTaskViewController.swift in Sources */,
+				A2334CB525D7265B00598E88 /* EmptyStateView.swift in Sources */,
 				A235421F25D16823004152D6 /* AppDelegate.swift in Sources */,
 				A21774BD25D56C6D00E9665E /* ShowTaskViewController.swift in Sources */,
+				A2334CB225D70CB400598E88 /* DaysTasksViewModel.swift in Sources */,
 				A21774B825D5656800E9665E /* TextField.swift in Sources */,
 				A2AAB29325D46360004E39C1 /* TaskTableViewCell.swift in Sources */,
 				A2AAB29025D41F00004E39C1 /* TasksStatus.swift in Sources */,
@@ -285,6 +307,8 @@
 				A235424025D17900004152D6 /* CoreDataService.swift in Sources */,
 				A235423B25D16BFE004152D6 /* beautifulTasks.xcdatamodeld in Sources */,
 				A2AAB28725D41984004E39C1 /* StatusTasks.swift in Sources */,
+				A2334CB825D872F500598E88 /* CreateTaskViewModel.swift in Sources */,
+				A2334CBC25D8862800598E88 /* UpdateTask.swift in Sources */,
 				A2BA77C325D2B1F9006C239E /* DaysTasksViewController.swift in Sources */,
 				A2AAB28C25D41B75004E39C1 /* StatusCard.swift in Sources */,
 				A2BA77D425D2DCAE006C239E /* BackgroundClocks.swift in Sources */,
@@ -432,6 +456,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = D56NG2Q3UR;
 				INFOPLIST_FILE = beautifulTasks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -451,6 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = D56NG2Q3UR;
 				INFOPLIST_FILE = beautifulTasks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

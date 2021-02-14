@@ -39,10 +39,13 @@ class CoreDataService {
         return nil
     }
 
-    func searchTasksPerDay(with date: Date) -> [NSManagedObject]? {
+    func searchTasksPerDay(with precidate: NSPredicate) -> [NSManagedObject]? {
         let context = self.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Task")
-        fetchRequest.predicate = NSPredicate(format: "creationDate == %@", date as CVarArg)
+//        let dateSort = NSSortDescriptor(key: "creationDate", ascending: false)
+        let doneSort = NSSortDescriptor(key: "done", ascending: true)
+        fetchRequest.sortDescriptors = [doneSort]
+        fetchRequest.predicate = precidate
 
         do {
             let result = try context.fetch(fetchRequest)

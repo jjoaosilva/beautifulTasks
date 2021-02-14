@@ -10,6 +10,8 @@ import UIKit
 
 class DaysTasksViewController: UIViewController {
 
+    let viewModel: DaysTasksViewModel = DaysTasksViewModel()
+
     let backgroundView: BackgroundClocks = {
         let backgroundView = BackgroundClocks()
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,15 +32,30 @@ class DaysTasksViewController: UIViewController {
         return tableView
     }()
 
+    let emptyStateView: EmptyStateView = {
+        var emptyStateView = EmptyStateView()
+        emptyStateView.translatesAutoresizingMaskIntoConstraints = false
+        return emptyStateView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationBar()
         self.setup()
         self.configureLayout()
+
+        self.viewModel.handleUpdate = {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.statusTasks.consigureQuantities(self.viewModel.concludeTasks, self.viewModel.pendingdTasks)
+            }
+        }
+        self.viewModel.getAllTasksDay()
+        self.statusTasks.consigureQuantities(self.viewModel.concludeTasks, self.viewModel.pendingdTasks)
     }
 
     private func setupNavigationBar() {
-        self.title = self.getDate()
+        self.title = self.viewModel.date
 
         let image =  UIImage(systemName: "plus.circle")
         let icon = image?.withTintColor(UIColor(named: "addTaskColor")!, renderingMode: .alwaysOriginal)
@@ -50,6 +67,7 @@ class DaysTasksViewController: UIViewController {
         self.view.addSubview(self.backgroundView)
         self.view.addSubview(self.statusTasks)
         self.view.addSubview(self.tableView)
+        self.view.addSubview(self.emptyStateView)
 
         self.tableView.register(TaskTableViewCell.self, forCellReuseIdentifier: TaskTableViewCell.reuseIdentifier)
 
@@ -82,23 +100,27 @@ class DaysTasksViewController: UIViewController {
             self.tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
+
+        NSLayoutConstraint.activate([
+            self.emptyStateView.topAnchor.constraint(equalTo: self.tableView.topAnchor),
+            self.emptyStateView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor),
+            self.emptyStateView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor),
+            self.emptyStateView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 
     @objc private func addTaskButtonWasTapped() {
-        let createTaskController = CreateTaskViewController()
+        let createViewModel = CreateTaskViewModel()
+        let createTaskController = CreateTaskViewController(viewModel: createViewModel)
+        createTaskController.callback = {
+            self.viewModel.getAllTasksDay()
+            self.viewModel.handleUpdate?()
+        }
+
         let createTasknavigationController = UINavigationController(rootViewController: createTaskController)
         self.navigationController?.present(createTasknavigationController, animated: true, completion: nil)
     }
 
-    private func getDate() -> String {
-        let date = Date()
-        let format = DateFormatter()
-        format.locale = Locale(identifier: "pt_BR")
-        format.setLocalizedDateFormatFromTemplate("EEEEMMMMd")
-
-        let formattedDate = format.string(from: date)
-        return formattedDate.capitalized
-    }
 }
 
 extension DaysTasksViewController: UITableViewDataSource, UITableViewDelegate {
@@ -106,13 +128,18 @@ extension DaysTasksViewController: UITableViewDataSource, UITableViewDelegate {
         return "Minha atividades"
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        let count = self.viewModel.taskList.count
+
+        self.emptyStateView.isHidden = count == 0 ? false : true
+
+        return count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: TaskTableViewCell.reuseIdentifier, for: indexPath) as? TaskTableViewCell
         guard let taskCell = cell else {return UITableViewCell()}
-        taskCell.configureLabels("Title Task", "Description Task")
+        taskCell.configureCell(self.viewModel.taskList[indexPath.row], indexPath.row)
+        taskCell.delagate = self.viewModel
         return taskCell
     }
 
@@ -128,11 +155,26 @@ extension DaysTasksViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = self.tableView.cellForRow(at: indexPath) as! TaskTableViewCell
-
         let showTaskController = ShowTaskViewController()
-        showTaskController.configure(cell.check)
+        showTaskController.configure(self.viewModel.taskList[indexPath.row])
 
         self.navigationController?.present(showTaskController, animated: true, completion: nil)
+    }
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+
+            if self.viewModel.deleteTask(at: indexPath.row) {
+                tableView.deleteRows(at: [indexPath], with: .right)
+            }
+
+            tableView.endUpdates()
+        }
     }
 }

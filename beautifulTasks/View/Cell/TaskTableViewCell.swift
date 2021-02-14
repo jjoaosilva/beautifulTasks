@@ -13,7 +13,6 @@ class TaskTableViewCell: UITableViewCell {
 
     let cardView: UIView = {
         let cardView = UIView()
-        cardView.backgroundColor = UIColor(named: "pendingColor")
         cardView.layer.cornerRadius = 16
         cardView.translatesAutoresizingMaskIntoConstraints = false
         return cardView
@@ -40,27 +39,28 @@ class TaskTableViewCell: UITableViewCell {
     }()
 
     let checkButton: UIButton = {
-        let configurationSizeIcon = UIImage.SymbolConfiguration(pointSize: CGFloat(36))
-        let configurationWeightIcon = UIImage.SymbolConfiguration(weight: .semibold)
-        let configurations = configurationSizeIcon.applying(configurationWeightIcon)
-        let configurationNameIcon =  UIImage(systemName: "circle", withConfiguration: configurations)
-        let icon = configurationNameIcon?.withTintColor(UIColor(named: "labelColor")!, renderingMode: .alwaysOriginal)
-
         let button = UIButton()
         button.setTitleColor(.black, for: .normal)
-        button.setImage(icon, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
 
         return button
     }()
 
-    var check: Bool = false
+    var check: Bool = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.updateCardLayout()
+            }
+        }
+    }
+
+    weak var delagate: UpdateTask?
+    var indexCell: Int = 0
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setup()
         self.configureLayout()
-        self.updateCardLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -114,8 +114,7 @@ class TaskTableViewCell: UITableViewCell {
     }
 
     @objc private func checkButtonWasTapped() {
-        self.check = !self.check
-        self.updateCardLayout()
+        self.delagate?.updateCheck(to: self.indexCell)
     }
 
     private func updateCardLayout() {
@@ -134,8 +133,11 @@ class TaskTableViewCell: UITableViewCell {
         })
     }
 
-    func configureLabels(_ title: String, _ description: String) {
-        self.titleLabel.text = title
-        self.descriptionLabel.text = description
+    func configureCell(_ task: TaskDTO, _ index: Int) {
+        self.titleLabel.text = task.title
+        self.descriptionLabel.text = task.subtitle
+        self.check = task.done
+
+        self.indexCell = index
     }
 }

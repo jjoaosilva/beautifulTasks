@@ -7,9 +7,23 @@
 
 import Foundation
 
-struct TaskDTO {
+struct TaskDTO: Equatable {
     var title: String
     var subtitle: String
     var done: Bool
     var creationDate: Date
+
+    var task: Task?
+}
+
+extension TaskDTO {
+     init(_ task: Task) {
+        self.title = task.title ?? ""
+        self.subtitle = task.subtitle ?? ""
+        self.done = task.done
+        self.creationDate = task.creationDate ?? Date()
+
+        self.task = task
+    }
+
 }

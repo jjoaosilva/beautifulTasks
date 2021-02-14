@@ -9,8 +9,9 @@ import UIKit
 // swiftlint:disable line_length
 
 class CreateTaskViewController: UIViewController {
+    var viewModel: CreateTaskViewModel
 
-    var suggestionTask: String = String()
+    public var callback: (() -> Void)?
 
     let backgroundView: BackgroundClocks = {
         let backgroundView = BackgroundClocks()
@@ -30,7 +31,6 @@ class CreateTaskViewController: UIViewController {
     }()
 
     let titleTextField: TextField = {
-//        let textfield = UITextField(frame: CGRect(x: 0, y: 0, width: 300.00, height: 30.00))
         let textfield = TextField()
         textfield.backgroundColor = UIColor(named: "backgroundColor")
         textfield.clearButtonMode = .always
@@ -65,8 +65,27 @@ class CreateTaskViewController: UIViewController {
         return textfield
     }()
 
+    init(viewModel: CreateTaskViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.viewModel.getBoredTask { task in
+            DispatchQueue.main.async {
+                self.titleTextField.placeholder = task
+            }
+        }
+        self.viewModel.handleDismiss = {
+            self.dismiss(animated: true, completion: nil)
+            self.callback?()
+        }
 
         self.consigurateNavigationBar()
         self.setup()
@@ -86,10 +105,11 @@ class CreateTaskViewController: UIViewController {
         self.view.addSubview(self.descriptionLabel)
         self.view.addSubview(self.titleTextField)
         self.view.addSubview(self.descriptionTextField)
+
+        self.titleTextField.becomeFirstResponder()
     }
 
     private func consigureLayout() {
-
         self.view.backgroundColor = UIColor(named: "backgroundColor")
 
         NSLayoutConstraint.activate([
@@ -140,24 +160,14 @@ class CreateTaskViewController: UIViewController {
         textField.layer.borderColor = UIColor(named: "titleFormColor")?.cgColor
     }
 
-    private func getBoredTask() {
-        let boredTaskAPI = BoredRequest()
-
-        boredTaskAPI.getBoredTask { result in
-            switch result {
-            case .success(let task):
-                self.suggestionTask = task.activity
-            case .failure:
-                self.suggestionTask = "Do anything"
-            }
-        }
-    }
-
     @objc func cancel() {
         self.dismiss(animated: true, completion: nil)
     }
 
     @objc func done() {
-        self.dismiss(animated: true, completion: nil)
+        self.viewModel.title = self.titleTextField.text!
+        self.viewModel.description = self.descriptionTextField.text!
+        self.viewModel.save()
+
     }
 }
